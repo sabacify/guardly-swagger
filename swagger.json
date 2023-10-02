@@ -1,184 +1,188 @@
 {
-    "collection": {
-        "info": {
-            "_postman_id": "b2a1fb56-c419-486d-9376-dd779613bb3e",
-            "name": "Guardly",
-            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-            "updatedAt": "2023-09-29T09:25:43.000Z",
-            "uid": "12686466-b2a1fb56-c419-486d-9376-dd779613bb3e"
-        },
-        "item": [
-            {
-                "name": "Health Check",
-                "id": "02dc60c6-2c11-4b0c-8872-2ba69055d6eb",
-                "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                },
-                "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                        "raw": "http://{{host}}:3002/health",
-                        "protocol": "http",
-                        "host": [
-                            "{{host}}"
-                        ],
-                        "port": "3002",
-                        "path": [
-                            "health"
-                        ]
-                    }
-                },
-                "response": [],
-                "uid": "12686466-02dc60c6-2c11-4b0c-8872-2ba69055d6eb"
-            },
-            {
-                "name": "Create Ride",
-                "id": "b9db54ae-055c-4f8b-a979-8bfcc3213bfe",
-                "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                },
-                "request": {
-                    "method": "POST",
-                    "header": [],
-                    "body": {
-                        "mode": "raw",
-                        "raw": "",
-                        "options": {
-                            "raw": {
-                                "language": "json"
-                            }
-                        }
-                    },
-                    "url": {
-                        "raw": "http://{{host}}:3002/ride",
-                        "protocol": "http",
-                        "host": [
-                            "{{host}}"
-                        ],
-                        "port": "3002",
-                        "path": [
-                            "ride"
-                        ]
-                    }
-                },
-                "response": [],
-                "uid": "12686466-b9db54ae-055c-4f8b-a979-8bfcc3213bfe"
-            },
-            {
-                "name": "Update Ride Route",
-                "id": "d6eb610e-0b82-4f9a-ac71-0503df79f9f3",
-                "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                },
-                "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "body": {
-                        "mode": "raw",
-                        "raw": "{\n    \"source\": [1.95126, 1.4616],\n    \"destination\": [1.1234, 1.4321]\n}",
-                        "options": {
-                            "raw": {
-                                "language": "json"
-                            }
-                        }
-                    },
-                    "url": {
-                        "raw": "http://{{host}}:3002/ride/{{rideId}}/route",
-                        "protocol": "http",
-                        "host": [
-                            "{{host}}"
-                        ],
-                        "port": "3002",
-                        "path": [
-                            "ride",
-                            "{{rideId}}",
-                            "route"
-                        ]
-                    }
-                },
-                "response": [],
-                "uid": "12686466-d6eb610e-0b82-4f9a-ac71-0503df79f9f3"
-            },
-            {
-                "name": "Start ride",
-                "id": "ff49a513-eceb-4905-baa8-910cc40b4a46",
-                "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                },
-                "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "url": {
-                        "raw": "http://localhost:3001/ride/{{rideId}}/status/transit",
-                        "protocol": "http",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "3001",
-                        "path": [
-                            "ride",
-                            "{{rideId}}",
-                            "status",
-                            "transit"
-                        ]
-                    }
-                },
-                "response": [],
-                "uid": "12686466-ff49a513-eceb-4905-baa8-910cc40b4a46"
-            },
-            {
-                "name": "Stop ride",
-                "id": "cbc92b9e-ed43-4248-aeff-9931e4e2ad2f",
-                "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                },
-                "request": {
-                    "method": "PUT",
-                    "header": [],
-                    "url": {
-                        "raw": "http://{{host}}:3002/ride/{{rideId}}/status/end",
-                        "protocol": "http",
-                        "host": [
-                            "{{host}}"
-                        ],
-                        "port": "3002",
-                        "path": [
-                            "ride",
-                            "{{rideId}}",
-                            "status",
-                            "end"
-                        ]
-                    }
-                },
-                "response": [],
-                "uid": "12686466-cbc92b9e-ed43-4248-aeff-9931e4e2ad2f"
-            },
-            {
-                "name": "Ride Details",
-                "id": "b5c71564-4da3-4134-be51-7d6ad7b761b2",
-                "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                },
-                "request": {
-                    "method": "GET",
-                    "header": [],
-                    "url": {
-                        "raw": "http://{{host}}:3002/ride/{{rideId}}",
-                        "protocol": "http",
-                        "host": [
-                            "{{host}}"
-                        ],
-                        "port": "3002",
-                        "path": [
-                            "ride",
-                            "{{rideId}}"
-                        ]
-                    }
-                },
-                "response": [],
-                "uid": "12686466-b5c71564-4da3-4134-be51-7d6ad7b761b2"
-            }
-        ]
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Guardly",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://{{host}}:3002"
+    },
+    {
+      "url": "http://localhost:3001"
     }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "General"
+        ],
+        "summary": "Health Check",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/ride": {
+      "post": {
+        "tags": [
+          "General"
+        ],
+        "summary": "Create Ride",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/ride/{rideId}/route": {
+      "put": {
+        "tags": [
+          "General"
+        ],
+        "summary": "Update Ride Route",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "source": [
+                    1.95126,
+                    1.4616
+                  ],
+                  "destination": [
+                    1.1234,
+                    1.4321
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "rideId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/ride/{rideId}/status/transit": {
+      "put": {
+        "tags": [
+          "General"
+        ],
+        "summary": "Start ride",
+        "requestBody": {
+          "content": {}
+        },
+        "parameters": [
+          {
+            "name": "rideId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/ride/{rideId}/status/end": {
+      "put": {
+        "tags": [
+          "General"
+        ],
+        "summary": "Stop ride",
+        "requestBody": {
+          "content": {}
+        },
+        "parameters": [
+          {
+            "name": "rideId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/ride/{rideId}": {
+      "get": {
+        "tags": [
+          "General"
+        ],
+        "summary": "Ride Details",
+        "parameters": [
+          {
+            "name": "rideId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
 }
